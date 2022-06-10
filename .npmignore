@@ -1,0 +1,10 @@
+.tf
+
+.idea
+.vscode
+.eclipse
+
+coverage
+documentation
+
+.DS_Store

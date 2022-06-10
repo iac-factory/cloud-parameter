@@ -1,0 +1,69 @@
+{
+    "name": "cloud-parameter",
+    "private": false,
+    "version": "0.8.158",
+    "main": "index.js",
+    "description": "Base Parameter Type-Interface via Node.js",
+    "types": "index.d.ts",
+    "license": "BSD-3-Clause",
+    "author": "Jacob B. Sanders",
+    "scripts": {
+        "test": "tsc && node --experimental-vm-modules $(command -v jest) --config jest.config.js --injectGlobals --detectOpenHandles",
+        "update": "tsc && node --experimental-vm-modules $(command -v jest) -u --config jest.config.js --injectGlobals --detectOpenHandles",
+        "start": "tsc && node --experimental-vm-modules $(command -v jest) --config jest.config.js --injectGlobals --detectOpenHandles --watch",
+        "build": "tsc --build $(dirname $(npm root))/tsconfig.json --watch",
+        "compile": "tsc && node unit-testing",
+        "demonstrate": "node --es-module-specifier-resolution node .",
+        "upload": "npm publish --access public",
+        "reinstall": "npm update && npm install --global --force",
+        "prepublishOnly": "npm install --silent && tsc && npm run test"
+    },
+    "devDependencies": {
+        "cloud-parameter": ".",
+        "@types/node": "latest",
+        "@iac-factory/eslint-settings": "^1.6.28",
+        "ts-node": "^10.8.1",
+        "typescript": "^4.7.3"
+    },
+    "repository": {
+        "type": "git",
+        "directory": ".",
+        "url": "https://github.com/iac-factory/parameter.git"
+    },
+    "publishConfig": {
+        "access": "public",
+        "tag": "latest",
+        "registry": "https://registry.npmjs.org"
+    },
+    "eslintConfig": {
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "extends": [
+            "eslint:recommended",
+            "plugin:@typescript-eslint/eslint-recommended",
+            "plugin:@typescript-eslint/recommended"
+        ],
+        "rules": {
+            "no-case-declarations": 0,
+            "@typescript-eslint/no-explicit-any": 0,
+            "@typescript-eslint/explicit-function-return-type": 0,
+            "@typescript-eslint/no-use-before-define": 0,
+            "@typescript-eslint/no-empty-interface": 0,
+            "@typescript-eslint/explicit-module-boundary-types": 0,
+            "@typescript-eslint/no-empty-function": 0,
+            "@typescript-eslint/no-unused-vars": 0,
+            "@typescript-eslint/no-inferrable-types": 0,
+            "@typescript-eslint/ban-types": 0,
+            "@typescript-eslint/ban-ts-comment": 0,
+            "no-sequences": "error"
+        },
+        "ignorePatterns": [
+            "coverage",
+            "declarations",
+            "distribution",
+            "node_modules"
+        ]
+    }
+}
