@@ -264,7 +264,7 @@ export class Parameter implements Options {
      * type via an assumed compatible string.
      *
      * For example, if an AWS SSM Parameter was attributed its name via "organization/environment/application/resource/identifier"
-     * naming convention, it can be safely assumed that `Parameter.instantiate` will then create a new serialized Parameter object.
+     * naming convention, it can be safely assumed that `Parameter.initialize` will then create a new serialized Parameter object.
      * Such can be useful when filtering or serializing a long list of configuration parameters. On perhaps a more theoretical
      * level, deriving a file-system-like object from a simple string can be thought of as a B++ Tree:
      *
@@ -278,7 +278,7 @@ export class Parameter implements Options {
      *
      * @example
      * /// An "Extended" Parameter Type
-     * const parameter = Parameter.instantiate("organization/environment/application/service/identifier");
+     * const parameter = Parameter.initialize("organization/environment/application/service/identifier");
      *
      * console.log(parameter.organization);
      * console.log(parameter.environment);
@@ -296,7 +296,7 @@ export class Parameter implements Options {
      *
      * @example
      * /// A "Base" (No Application) Parameter Type
-     * const parameter = Parameter.instantiate("organization/environment/service/identifier");
+     * const parameter = Parameter.initialize("organization/environment/service/identifier");
      *
      * console.log(parameter.organization);
      * console.log(parameter.environment);
@@ -419,3 +419,5 @@ export interface Options {
 }
 
 export default Parameter;
+
+export const create = Parameter.initialize;
