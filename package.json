@@ -1,7 +1,7 @@
 {
     "name": "cloud-parameter",
     "private": false,
-    "version": "0.8.159",
+    "version": "0.8.163",
     "main": "index.js",
     "description": "Base Parameter Type-Interface via Node.js",
     "types": "index.d.ts",
@@ -19,9 +19,12 @@
         "prepublishOnly": "npm install --silent && tsc && npm run test"
     },
     "devDependencies": {
-        "cloud-parameter": ".",
-        "@types/node": "latest",
         "@iac-factory/eslint-settings": "^1.6.28",
+        "@jest/globals": "^28.1.1",
+        "@types/jest": "^28.1.1",
+        "@types/node": "^18.0.0",
+        "cloud-parameter": ".",
+        "jest": "^28.1.1",
         "ts-node": "^10.8.1",
         "typescript": "^4.7.3"
     },
@@ -34,36 +37,5 @@
         "access": "public",
         "tag": "latest",
         "registry": "https://registry.npmjs.org"
-    },
-    "eslintConfig": {
-        "parser": "@typescript-eslint/parser",
-        "plugins": [
-            "@typescript-eslint"
-        ],
-        "extends": [
-            "eslint:recommended",
-            "plugin:@typescript-eslint/eslint-recommended",
-            "plugin:@typescript-eslint/recommended"
-        ],
-        "rules": {
-            "no-case-declarations": 0,
-            "@typescript-eslint/no-explicit-any": 0,
-            "@typescript-eslint/explicit-function-return-type": 0,
-            "@typescript-eslint/no-use-before-define": 0,
-            "@typescript-eslint/no-empty-interface": 0,
-            "@typescript-eslint/explicit-module-boundary-types": 0,
-            "@typescript-eslint/no-empty-function": 0,
-            "@typescript-eslint/no-unused-vars": 0,
-            "@typescript-eslint/no-inferrable-types": 0,
-            "@typescript-eslint/ban-types": 0,
-            "@typescript-eslint/ban-ts-comment": 0,
-            "no-sequences": "error"
-        },
-        "ignorePatterns": [
-            "coverage",
-            "declarations",
-            "distribution",
-            "node_modules"
-        ]
     }
 }
