@@ -1,5 +1,8 @@
 # `cloud-parameter` #
 
+[![Socket Badge](https://socket.dev/api/badge/npm/package/cloud-parameter)](https://socket.dev/npm/package/cloud-parameter)
+
+
 Parameters often used during configuration can be a difficult concept to standardize.
 
 `cloud-parameter` aims to strictly define a naming and constructor convention to ease efforts associated
@@ -13,26 +16,68 @@ with configuration, while allowing for an easy inheritance pattern to further ex
 
 ```node
 const Main = async () => {
-    const { Parameter } = await import("cloud-parameter");
+   const {Parameter} = await import("cloud-parameter");
 
-    const instance = new Parameter({
-        organization: "IBM",
-        environment: "Development",
-        application: "Storage-Store",
-        service: "Authorization-Service",
-        identifier: "Credentials"
-    });
+const instance = new Parameter({
+   organization: "IBM",
+   environment: "Development",
+   application: "Storage-Store",
+   service: "Authorization-Service",
+   identifier: "Credentials"
+});
 
-    console.log(instance);
+/***
+ * @example
+ * // returns:
+ * Parameter {
+ *   organization: 'IBM',
+ *   environment: 'Development',
+ *   application: 'Storage-Store',
+ *   service: 'Authorization-Service',
+ *   identifier: 'Credentials'
+ * };
+ *
+ * console.log(instance);
+ */
+console.log(instance);
 
-    console.log(instance.string());
+/***
+ * @example
+ * // returns IBM/Development/Storage-Store/Authorization-Service/Credentials
+ * console.log(instance.string());
+ */
+console.log(instance.string());
 
-    console.log(instance.string("Directory"));
-    console.log(instance.string("Train-Case"));
-    console.log(instance.string("Screaming-Train-Case"));
+/***
+ * @example
+ * // returns IBM/Development/Storage-Store/Authorization-Service/Credentials
+ * console.log(instance.string("Directory"));
+ */
+console.log(instance.string("Directory"));
+
+/***
+ * @example
+ * // returns /IBM/Development/Storage-Store/Authorization-Service/Credentials
+ * console.log(instance.string("Directory", true));
+ */
+console.log(instance.string("Directory", true));
+
+/***
+ * @example
+ * // returns ibm-development-storage-store-authorization-service-credentials
+ * console.log(instance.string("Train-Case"));
+ */
+console.log(instance.string("Train-Case"));
+
+/***
+ * @example
+ * // returns Ibm-Development-Storage-Store-Authorization-Service-Credentials
+ * console.log(instance.string("Screaming-Train-Case"));
+ */
+console.log(instance.string("Screaming-Train-Case"));
 }
 
-( async () => Main() )();
+(async () => Main())();
 ```
 
 ### Modules ###
@@ -41,18 +86,61 @@ const Main = async () => {
 import { Parameter } from "cloud-parameter";
 
 const instance = new Parameter({
-    organization: "IBM",
-    environment: "Development",
-    application: "Storage-Store",
-    service: "Authorization-Service",
-    identifier: "Credentials"
+   organization: "IBM",
+   environment: "Development",
+   application: "Storage-Store",
+   service: "Authorization-Service",
+   identifier: "Credentials"
 });
 
+/***
+ * @example
+ * // returns:
+ * Parameter {
+ *   organization: 'IBM',
+ *   environment: 'Development',
+ *   application: 'Storage-Store',
+ *   service: 'Authorization-Service',
+ *   identifier: 'Credentials'
+ * };
+ *
+ * console.log(instance);
+ */
 console.log(instance);
+
+/***
+ * @example
+ * // returns IBM/Development/Storage-Store/Authorization-Service/Credentials
+ * console.log(instance.string());
+ */
 console.log(instance.string());
 
+/***
+ * @example
+ * // returns IBM/Development/Storage-Store/Authorization-Service/Credentials
+ * console.log(instance.string("Directory"));
+ */
 console.log(instance.string("Directory"));
+
+/***
+ * @example
+ * // returns /IBM/Development/Storage-Store/Authorization-Service/Credentials
+ * console.log(instance.string("Directory", true));
+ */
+console.log(instance.string("Directory", true));
+
+/***
+ * @example
+ * // returns ibm-development-storage-store-authorization-service-credentials
+ * console.log(instance.string("Train-Case"));
+ */
 console.log(instance.string("Train-Case"));
+
+/***
+ * @example
+ * // returns Ibm-Development-Storage-Store-Authorization-Service-Credentials
+ * console.log(instance.string("Screaming-Train-Case"));
+ */
 console.log(instance.string("Screaming-Train-Case"));
 ```
 

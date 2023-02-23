@@ -16,7 +16,7 @@ describe( "Unit Test (Extended)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
         
-        console.log("Instance", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Instance", Utility.inspect(instance, { colors: true }));
 
         expect(instance).toBeTruthy();
     });
@@ -26,7 +26,7 @@ describe( "Unit Test (Extended)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Organization", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Organization", Utility.inspect(instance, { colors: true }));
 
         expect(instance.organization).toEqual("organization");
     });
@@ -36,7 +36,7 @@ describe( "Unit Test (Extended)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Environment", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Environment", Utility.inspect(instance, { colors: true }));
 
         expect(instance.environment).toEqual("environment");
     });
@@ -46,7 +46,7 @@ describe( "Unit Test (Extended)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Application", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Application", Utility.inspect(instance, { colors: true }));
 
         expect(instance.application).toEqual("application");
     });
@@ -56,7 +56,7 @@ describe( "Unit Test (Extended)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("service", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("service", Utility.inspect(instance, { colors: true }));
 
         expect(instance.service).toEqual("service");
     });
@@ -66,7 +66,7 @@ describe( "Unit Test (Extended)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Identifier", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Identifier", Utility.inspect(instance, { colors: true }));
 
         expect(instance.identifier).toEqual("identifier");
     });
@@ -76,7 +76,7 @@ describe( "Unit Test (Extended)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Properties", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Properties", Utility.inspect(instance, { colors: true }));
 
         expect(instance.string().split("/").length).toEqual(5);
     });
@@ -90,7 +90,7 @@ describe( "Unit Test (Base)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Instance", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Instance", Utility.inspect(instance, { colors: true }));
 
         expect(instance).toBeTruthy();
     });
@@ -100,7 +100,7 @@ describe( "Unit Test (Base)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Organization", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Organization", Utility.inspect(instance, { colors: true }));
 
         expect(instance.organization).toEqual("organization");
     });
@@ -110,7 +110,7 @@ describe( "Unit Test (Base)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Environment", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Environment", Utility.inspect(instance, { colors: true }));
 
         expect(instance.environment).toEqual("environment");
     });
@@ -120,7 +120,7 @@ describe( "Unit Test (Base)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("service", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("service", Utility.inspect(instance, { colors: true }));
 
         expect(instance.service).toEqual("service");
     });
@@ -130,7 +130,7 @@ describe( "Unit Test (Base)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Application", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Application", Utility.inspect(instance, { colors: true }));
 
         expect(instance.identifier).toEqual("identifier");
     });
@@ -140,7 +140,7 @@ describe( "Unit Test (Base)", () => {
 
         const instance = Import.Parameter.initialize(input, true);
 
-        console.log("Properties", Utility.inspect(instance, { colors: true, depth: Infinity }));
+        console.log("Properties", Utility.inspect(instance, { colors: true }));
 
         expect(instance.string().split("/").length).toEqual(4);
     });

@@ -207,7 +207,7 @@ export class Parameter implements Options {
      *
      */
 
-    public string(type: Type | string = Type.Directory, prefix?: "/"): string {
+    public string(type: Type | string = Type.Directory, prefix?: boolean): string {
         const keys: string[] = [];
 
         [...["organization", "environment", "application", "service", "identifier"] as const].forEach(($) => {
@@ -235,7 +235,7 @@ export class Parameter implements Options {
             : (type === "Train-Case") ? cast
                 : property;
 
-        return (prefix) ? prefix + $ : $;
+        return (prefix) ? (type === Type.Directory) ? ("/" + $) : ($) : $;
     }
 
     /***
