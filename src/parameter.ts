@@ -6,7 +6,7 @@
  * All Rights Reserved
  */
 
-import { Normalize, Train } from "./string";
+import {Normalize, Train} from "./string";
 
 /***
  * Type Enumeration
@@ -161,7 +161,7 @@ export class Parameter implements Options {
         this.service = options.service;
         this.identifier = options.identifier;
 
-        if ( !options?.application ) delete this.application;
+        if (!options?.application) delete this.application;
     }
 
     /***
@@ -210,13 +210,13 @@ export class Parameter implements Options {
     public string(type: Type | string = Type.Directory, prefix?: "/"): string {
         const keys: string[] = [];
 
-        Object.keys( this ).forEach( ($) => {
-            const value = Reflect.get( this, $ );
-            if ( value !== undefined ) keys.push( value );
-        } );
+        [...["organization", "environment", "application", "service", "identifier"] as const].forEach(($) => {
+            const value = Reflect.get(this, $);
+            if (value !== undefined) keys.push(value);
+        });
 
-        const property = keys.join( ( type === "Directory" )
-            ? "/" : ( type === "Screaming-Train-Case" )
+        const property = keys.join((type === "Directory")
+            ? "/" : (type === "Screaming-Train-Case")
                 ? "-" : "/"
         );
 
@@ -228,14 +228,14 @@ export class Parameter implements Options {
          *
          * @type {string}
          */
-        const cast: string = Train( property, { condense: true } );
+        const cast: string = Train(property, {condense: true});
 
         /*** Return a potentially Normalized string, capitalizing according to type */
-        const $ = ( type === "Screaming-Train-Case" ) ? Normalize( cast )
-            : ( type === "Train-Case" ) ? cast
+        const $ = (type === "Screaming-Train-Case") ? Normalize(cast)
+            : (type === "Train-Case") ? cast
                 : property;
 
-        return ( prefix ) ? prefix + $ : $;
+        return (prefix) ? prefix + $ : $;
     }
 
     /***
@@ -249,7 +249,7 @@ export class Parameter implements Options {
      */
 
     public enumerations(): Properties {
-        return this.string( Type.Directory ).split( "/" ).length;
+        return this.string(Type.Directory).split("/").length;
     }
 
     /***
@@ -319,34 +319,34 @@ export class Parameter implements Options {
      */
 
     public static initialize(value: string, debug: boolean = false): Parameter {
-        const prefix = ( value[ 0 ] === "/" ) ? "/" : "";
+        const prefix = (value[0] === "/") ? "/" : "";
 
-        if ( prefix ) value = value.slice( 1 );
+        if (prefix) value = value.slice(1);
 
-        const split = value.split( "/" );
+        const split = value.split("/");
 
-        ( debug ) && console.debug( "[Debug]", "Properties" + ":", split );
+        (debug) && console.debug("[Debug]", "Properties" + ":", split);
 
         const enumerable = () => {
-            switch ( split.length ) {
+            switch (split.length) {
                 case Properties.Base:
                     /// Omission of Application
-                    return new Parameter( {
-                        organization: split[ 0 ]!,
-                        environment: split[ 1 ]!,
-                        service: split[ 2 ]!,
-                        identifier: split[ 3 ]!
-                    } );
+                    return new Parameter({
+                        organization: split[0]!,
+                        environment: split[1]!,
+                        service: split[2]!,
+                        identifier: split[3]!
+                    });
                 case Properties.Extended:
-                    return new Parameter( {
-                        organization: split[ 0 ]!,
-                        environment: split[ 1 ]!,
-                        application: split[ 2 ]!,
-                        service: split[ 3 ]!,
-                        identifier: split[ 4 ]!
-                    } );
+                    return new Parameter({
+                        organization: split[0]!,
+                        environment: split[1]!,
+                        application: split[2]!,
+                        service: split[3]!,
+                        identifier: split[4]!
+                    });
                 default:
-                    const $ = new Error( "Parameter-Enumeration-Error" );
+                    const $ = new Error("Parameter-Enumeration-Error");
 
                     $.name = "Parameter-Enumeration-Error";
                     $.message = "\n";
@@ -361,9 +361,9 @@ export class Parameter implements Options {
 
         const evaluation = enumerable();
 
-        const valid = ( evaluation ) && true || false;
+        const valid = (evaluation) && true || false;
 
-        ( debug ) && console.debug( "[Debug]", "Enumerable" + ":", valid, evaluation );
+        (debug) && console.debug("[Debug]", "Enumerable" + ":", valid, evaluation);
 
         return evaluation;
     }
@@ -371,11 +371,11 @@ export class Parameter implements Options {
     delimiter(delimiter: string): string {
         const options = this.format();
 
-        const { organization } = options;
-        const { environment } = options;
-        const { application } = options;
-        const { service } = options;
-        const { identifier } = options;
+        const {organization} = options;
+        const {environment} = options;
+        const {application} = options;
+        const {service} = options;
+        const {identifier} = options;
 
         return [
             organization,
@@ -383,33 +383,33 @@ export class Parameter implements Options {
             application,
             service,
             identifier
-        ].join( delimiter );
+        ].join(delimiter);
     }
 
     prefix(delimiter: string, prefix?: boolean): string {
         const options = this.format();
 
-        const { organization } = options;
-        const { environment } = options;
-        const { application } = options;
-        const { service } = options;
-        const { identifier } = options;
+        const {organization} = options;
+        const {environment} = options;
+        const {application} = options;
+        const {service} = options;
+        const {identifier} = options;
 
-        return ( prefix ) ? [
+        return (prefix) ? [
                 "",
                 organization,
                 environment,
                 application,
                 service,
                 identifier
-            ].join( delimiter )
+            ].join(delimiter)
             : [
                 organization,
                 environment,
                 application,
                 service,
                 identifier
-            ].join( delimiter );
+            ].join(delimiter);
     }
 }
 

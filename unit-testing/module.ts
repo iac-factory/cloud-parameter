@@ -16,5 +16,5 @@ declare module "Unit-Testing" {
      * {@link https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/require-hook.md Require-Hook}
      */
 
-    export type State = jest.MatcherState & Record<string, object | number | string | boolean> & { data?: object | string; };
+    export type State = Partial<jest.MatcherState & Record<string, object | number | string | boolean | null> & { data?: object | string; }>;
 }

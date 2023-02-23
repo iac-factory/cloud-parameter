@@ -16,7 +16,7 @@ describe( "Unit Test", () => {
     it("Generator", async () => {
         const instance = Parameter.initialize(input);
 
-        console.log("Instance", Utility.inspect(instance, { colors: true }));
+        console.log("Instance", Utility.inspect(instance, { colors: true, depth: Infinity }));
 
         expect(instance).toBeTruthy();
     });
@@ -24,7 +24,7 @@ describe( "Unit Test", () => {
     it("Organization", async () => {
         const instance = Parameter.initialize(input);
 
-        console.log("Organization", Utility.inspect(instance, { colors: true }));
+        console.log("Organization", Utility.inspect(instance, { colors: true, depth: Infinity }));
 
         expect(instance.organization).toEqual("organization");
     });
@@ -32,7 +32,7 @@ describe( "Unit Test", () => {
     it("Environment", async () => {
         const instance = Parameter.initialize(input);
 
-        console.log("Environment", Utility.inspect(instance, { colors: true }));
+        console.log("Environment", Utility.inspect(instance, { colors: true, depth: Infinity }));
 
         expect(instance.environment).toEqual("environment");
     });
@@ -40,7 +40,7 @@ describe( "Unit Test", () => {
     it("Application", async () => {
         const instance = Parameter.initialize(input);
 
-        console.log("Application", Utility.inspect(instance, { colors: true }));
+        console.log("Application", Utility.inspect(instance, { colors: true, depth: Infinity }));
 
         expect(instance.application).toEqual("application");
     });
@@ -48,7 +48,7 @@ describe( "Unit Test", () => {
     it("Service", async () => {
         const instance = Parameter.initialize(input);
 
-        console.log("service", Utility.inspect(instance, { colors: true }));
+        console.log("service", Utility.inspect(instance, { colors: true, depth: Infinity }));
 
         expect(instance.service).toEqual("service");
     });
@@ -56,7 +56,7 @@ describe( "Unit Test", () => {
     it("Identifier", async () => {
         const instance = Parameter.initialize(input);
 
-        console.log("Identifier", Utility.inspect(instance, { colors: true }));
+        console.log("Identifier", Utility.inspect(instance, { colors: true, depth: Infinity }));
 
         expect(instance.identifier).toEqual("identifier");
     });
@@ -64,7 +64,7 @@ describe( "Unit Test", () => {
     it("Properties", async () => {
         const instance = Parameter.initialize(input);
 
-        console.log("Properties", Utility.inspect(instance, { colors: true }));
+        console.log("Properties", Utility.inspect(instance, { colors: true, depth: Infinity }));
 
         expect(instance.string().split("/").length).toEqual(5);
     });

@@ -2,16 +2,16 @@
 
 exports[`ECMA Import 1`] = `
 "{
-    \\"Properties\\": {
-        \\"4\\": \\"Base\\",
-        \\"5\\": \\"Extended\\",
-        \\"Base\\": 4,
-        \\"Extended\\": 5
+    "Properties": {
+        "4": "Base",
+        "5": "Extended",
+        "Base": 4,
+        "Extended": 5
     },
-    \\"Type\\": {
-        \\"Directory\\": \\"Directory\\",
-        \\"Train\\": \\"Screaming-Train-Case\\",
-        \\"Dash\\": \\"Train-Case\\"
+    "Type": {
+        "Directory": "Directory",
+        "Train": "Screaming-Train-Case",
+        "Dash": "Train-Case"
     }
 }"
 `;

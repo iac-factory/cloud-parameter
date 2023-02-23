@@ -1,7 +1,7 @@
 {
     "name": "cloud-parameter",
     "private": false,
-    "version": "0.8.163",
+    "version": "0.8.164",
     "main": "index.js",
     "description": "Base Parameter Type-Interface via Node.js",
     "types": "index.d.ts",
@@ -19,19 +19,18 @@
         "prepublishOnly": "npm install --silent && tsc && npm run test"
     },
     "devDependencies": {
-        "@iac-factory/eslint-settings": "^1.6.28",
-        "@jest/globals": "^28.1.1",
-        "@types/jest": "^28.1.1",
-        "@types/node": "^18.0.0",
         "cloud-parameter": ".",
-        "jest": "^28.1.1",
-        "ts-node": "^10.8.1",
-        "typescript": "^4.7.3"
+        "@iac-factory/eslint-settings": "^1.7.36",
+        "@jest/globals": "^29.4.3",
+        "@types/jest": "^29.4.0",
+        "@types/node": "^18.14.0",
+        "jest": "^29.4.3",
+        "typescript": "^5.0.0-beta"
     },
     "repository": {
         "type": "git",
         "directory": ".",
-        "url": "https://github.com/iac-factory/parameter.git"
+        "url": "https://github.com/iac-factory/cloud-parameter.git"
     },
     "publishConfig": {
         "access": "public",
